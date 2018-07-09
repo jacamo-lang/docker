@@ -48,6 +48,6 @@ RUN apk add --update --no-cache gcc g++ make bash curl unzip tar openjdk8-jre ru
 
 RUN git clone https://github.com/jacamo-lang/jacamo.git && \
     cd jacamo && \
-    gradle jar
+    gradle test
 
 ENTRYPOINT cd jacamo && git pull && gradle release
