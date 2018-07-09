@@ -1,5 +1,8 @@
-# to build: docker build  -t jh/myfirs .
-# to run: docker run --mount type=bind,source="$(pwd)",target=/jacamo/build/distributions jh/myfirs
+# Dockerfile to create an image that produces a release of JaCaMo
+# (a zip file with all necessary to install JaCaMo)
+
+# to build: docker build  -t jomifred/jacamo-release .
+# to run: docker run --mount type=bind,source="$(pwd)",target=/jacamo/build/distributions jomifred/jacamo-release
 
 FROM alpine
 
@@ -40,7 +43,7 @@ RUN apk add --update --no-cache gcc g++ make bash curl unzip tar openjdk8-jre ru
     cd pygments-jacamo && make mapfiles && \
     python setup.py install && \
 #
-    apk del bash curl unzip tar gcc g++ make ruby-dev python-dev py-pip libjpeg-turbo-dev zlib-dev zip && \
+    apk del bash curl unzip tar gcc g++ make ruby-dev python-dev py-pip libjpeg-turbo-dev zlib-dev zip mercurial && \
     rm -rf /tmp/* /var/cache/apk/* ~/.cache/pip
 
 RUN git clone https://github.com/jacamo-lang/jacamo.git && \
