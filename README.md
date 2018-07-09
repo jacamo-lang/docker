@@ -8,7 +8,9 @@ Commands for console applications:
 
  ```
 cd <your application directory>
-docker run -ti --rm --mount type=bind,source="$(pwd)",target=/app jomifred/jacamo-runss /app/<your .jcm file>
+docker run -ti --rm \
+       --mount type=bind,source="$(pwd)",target=/app \
+       jomifred/jacamo-runss /app/<your .jcm file>
 ```
 
 Commands for GUI applications (on unix):
@@ -16,7 +18,10 @@ Commands for GUI applications (on unix):
 ```
 xhosts +
 cd <your application directory>
-docker run  -ti --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY --mount type=bind,source="$(pwd)",target=/app jomifred/jacamo-runss /app/<your .jcm file>
+docker run  -ti --rm \
+       -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
+       --mount type=bind,source="$(pwd)",target=/app \
+       jomifred/jacamo-runss /app/<your .jcm file>
 ```
 
 
