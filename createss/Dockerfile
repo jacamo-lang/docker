@@ -1,8 +1,8 @@
-# Dockerfile to run JaCaMo applications
+# Dockerfile to create JaCaMo applications
 # based on JaCaMo SNAPSHOT release
 
 # to build:
-#    docker build  -t jomifred/jacamo-runss .
+#    docker build  -t jomifred/jacamo-createss .
 
 FROM alpine
 
@@ -19,5 +19,5 @@ EXPOSE 3271
 EXPOSE 3272
 EXPOSE 3273
 
-ENTRYPOINT [ "/jacamo/scripts/jacamo" ]
+ENTRYPOINT [ "/jacamo/scripts/jacamo-new-project" ]
 CMD []

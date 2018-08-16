@@ -2,7 +2,6 @@
 # (a zip file with all necessary to install JaCaMo)
 
 # to build: docker build  -t jomifred/jacamo-release .
-# to run: docker run --mount type=bind,source="$(pwd)",target=/jacamo/build/distributions jomifred/jacamo-release
 
 FROM alpine
 

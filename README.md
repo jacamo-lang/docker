@@ -1,6 +1,13 @@
-# docker for JaCaMo
+# Docker for JaCaMo
 
 This project contains docker instructions related to [JaCaMo](http://jacamo.sf.net) platform
+
+## Creating JaCaMo applications
+
+To create an application identified by `helloworld`, enter the following command:
+```
+docker run -ti --rm -v "$(pwd)":/app jomifred/jacamo-createss /app/helloworld
+```
 
 ## Running JaCaMo applications
 
@@ -25,7 +32,9 @@ docker run  -ti --rm \
 ```
 
 
-## Buildind a JaCaMo release
+## Building a JaCaMo release
+
+from the latest version in GitHub
 
 ```
 docker run -v "$(pwd)":/jacamo/build/distributions jomifred/jacamo-release
