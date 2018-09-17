@@ -19,5 +19,5 @@ EXPOSE 3271
 EXPOSE 3272
 EXPOSE 3273
 
-ENTRYPOINT [ "/jacamo/scripts/jacamo-new-project" ]
+ENTRYPOINT [ "/jacamo/build/scripts/jacamo-new-project" ]
 CMD []
