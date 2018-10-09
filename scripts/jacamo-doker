@@ -3,9 +3,9 @@ ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 if [ -z "$ip" ] ; then
     ip=$(ifconfig en1 | grep inet | awk '$1=="inet" {print $2}')
 fi
-if [ -z "$ip" ] ; then
-    ip=host.docker.internal
-fi
+#if [ -z "$ip" ] ; then
+#    ip=host.docker.internal
+#fi
 
 xhost + $ip
 
