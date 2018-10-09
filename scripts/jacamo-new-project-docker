@@ -1,0 +1,4 @@
+#!/bin/sh
+docker run  -ti --rm \
+       -v "$(pwd)":/app \
+       jomifred/jacamo-createss /app/$1
