@@ -1,0 +1,4 @@
+docker run  -ti --rm \
+       -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
+       -v "$(pwd)":/app \
+       jomifred/jacamo-runss /app/<your .jcm file>
