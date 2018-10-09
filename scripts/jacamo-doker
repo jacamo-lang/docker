@@ -1,6 +1,6 @@
 #!/bin/sh
 xhost +
 docker run  -ti --rm \
-       -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
+       -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=host.docker.internal:0 \
        -v "$(pwd)":/app \
        jomifred/jacamo-runss /app/$1
