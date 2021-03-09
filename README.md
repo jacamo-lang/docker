@@ -13,22 +13,29 @@ docker run -ti --rm -v "$(pwd)":/app jomifred/jacamo-createss /app/helloworld
 
 Commands for console applications:
 
- ```
-cd <your application directory>
-docker run -ti --rm \
-       -v "$(pwd)":/app \
-       jomifred/jacamo-runss /app/<your .jcm file>
 ```
+cd <your application directory>
+docker run -ti --rm -v "$(pwd)":/app -w /app jomifred/jacamo-runss jacamo <your .jcm file>
+```
+
+or
+
+```
+cd <your application directory>
+docker run -ti -v "$(pwd)":/app -w /app jomifred/jacamo-runss gradle
+```
+
 
 Commands for GUI applications (on unix):
 
 ```
-xhosts +
+xhost +
 cd <your application directory>
 docker run  -ti --rm \
        -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
        -v "$(pwd)":/app \
-       jomifred/jacamo-runss /app/<your .jcm file>
+       -w /app
+       jomifred/jacamo-runss jacamo <your .jcm file>
 ```
 
 

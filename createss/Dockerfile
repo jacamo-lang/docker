@@ -1,5 +1,5 @@
 # Dockerfile to create JaCaMo applications
-# based on JaCaMo SNAPSHOT release
+# based on JaCaMo SNAPSHOT release (0.10)
 
 # to build:
 #    docker build  -t jomifred/jacamo-createss .

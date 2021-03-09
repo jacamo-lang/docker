@@ -1,5 +1,5 @@
 # Dockerfile to run JaCaMo applications
-# based on JaCaMo SNAPSHOT release
+# based on JaCaMo SNAPSHOT release (0.10)
 
 # to build:
 #    docker build  -t jomifred/jacamo-runss .
@@ -19,5 +19,5 @@ EXPOSE 3271
 EXPOSE 3272
 EXPOSE 3273
 
-ENTRYPOINT [ "/jacamo/build/scripts/jacamo" ]
-CMD []
+#ENTRYPOINT [ "/jacamo/build/scripts/jacamo" ]
+#CMD []
