@@ -1,6 +1,8 @@
 # Docker for JaCaMo
 
-This project contains docker instructions related to [JaCaMo](http://jacamo.sf.net) platform
+This project contains docker instructions related to [JaCaMo](http://jacamo.sf.net) platform.
+
+[Docker Hub link](https://hub.docker.com/r/jomifred/jacamo)
 
 ## Creating JaCaMo applications
 
