@@ -1,10 +1,10 @@
 # Dockerfile to run JaCaMo applications
-# based on JaCaMo 1.1 (snapshot)
+# based on JaCaMo 1.2 (snapshot)
 
 # to build:
-#    docker build  -t jomifred/jacamo:1.1ss - < Dockerfile1.1ss
+#    docker build --no-cache  -t jomifred/jacamo:1.2ss - < Dockerfile1.2ss
 # to publish
-#    docker push jomifred/jacamo:1.1ss
+#    docker push jomifred/jacamo:1.2ss
 
 FROM openjdk:15-jdk-alpine
 
