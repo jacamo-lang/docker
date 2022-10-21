@@ -2,9 +2,9 @@
 # based on JaCaMo 1.2 (snapshot)
 
 # to build:
-#    docker build --no-cache  -t jomifred/jacamo:1.2ss - < Dockerfile1.2ss
+#    docker build --no-cache  -t jomifred/jacamo:1.2ss -t jomifred/jacamo:latest - < Dockerfile1.2ss
 # to publish
-#    docker push jomifred/jacamo:1.2ss
+#    docker push --all-tags jomifred/jacamo
 
 FROM openjdk:15-jdk-alpine
 
