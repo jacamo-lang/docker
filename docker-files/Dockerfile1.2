@@ -1,0 +1,47 @@
+# Dockerfile to run JaCaMo applications
+# based on JaCaMo 1.2
+
+# to build:
+#    docker build --no-cache  -t jomifred/jacamo:1.2 -t jomifred/jacamo:latest - < Dockerfile1.2
+# to publish
+#    docker push --all-tags jomifred/jacamo
+
+FROM openjdk:17-jdk-alpine
+ENV PATH $PATH:$JAVA_HOME/bin
+
+#ENV JACAMO_HOME=/jacamo/build
+#ENV PATH $PATH:$JACAMO_HOME/scripts
+
+RUN apk add --update --no-cache git bash fontconfig ttf-dejavu \
+    libxrender libxtst libxi
+
+# graphviz
+
+RUN git clone https://github.com/jacamo-lang/jacamo-cli.git && \
+    cd jacamo-cli \
+    && ./gradlew uberJar
+
+RUN cd /jacamo-cli/build/bin \
+    && ../../src/main/resources/scripts/create-bin.sh jacamo-cli-all-1.2.jar \
+    && cp /jacamo-cli/build/bin/jacamo /usr/local/bin
+
+#ENV PATH $PATH:/jacamo-cli/build/bin
+
+# create and run an application to download gradle dependencies
+RUN cd /tmp && \
+    jacamo app create cacheapp --console && \
+    cd cacheapp && \
+    ./gradlew build && \
+    cd /tmp && \
+    rm -rf cacheapp
+
+
+EXPOSE 3271
+EXPOSE 3272
+EXPOSE 3273
+EXPOSE 8080
+EXPOSE 8081
+
+ENTRYPOINT [ "/usr/local/bin/jacamo" ]
+#ENTRYPOINT [ "/bin/bash" ]
+#CMD []

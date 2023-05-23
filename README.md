@@ -8,7 +8,7 @@ This project contains docker instructions related to [JaCaMo](http://jacamo.sf.n
 
 To create an application identified by `helloworld`, enter the following command:
 ```
-docker run -ti --rm -v "$(pwd)":/app jomifred/jacamo:1.1 jacamo-new-project /app/helloworld
+docker run -ti --rm -v "$(pwd)":/app jomifred/jacamo:1.2 app create /app/helloworld --console
 ```
 
 NB: the tag `1.1` correspond to the version of JaCaMo.
@@ -19,7 +19,7 @@ Commands for console applications (assuming it was created as above):
 
 ```
 cd helloworld
-docker run -ti --rm -v "$(pwd)":/app -w /app jomifred/jacamo:1.1 jacamo helloworld.jcm
+docker run -ti --rm -v "$(pwd)":/app -w /app jomifred/jacamo:1.2 helloworld.jcm
 ```
 
 Commands for GUI applications (on unix):
@@ -27,5 +27,5 @@ Commands for GUI applications (on unix):
 ```
 xhost +
 cd <your application directory>
-docker run  -ti --rm -e DISPLAY=host.docker.internal:0 -v "$(pwd)":/app -w /app jomifred/jacamo:1.1 jacamo <your .jcm file>
+docker run  -ti --rm -e DISPLAY=host.docker.internal:0 -v "$(pwd)":/app -w /app jomifred/jacamo:1.2 <your .jcm file>
 ```
