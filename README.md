@@ -19,7 +19,7 @@ Commands for console applications (assuming it was created as above):
 
 ```
 cd helloworld
-docker run -ti --rm -v .:/app -w /app jomifred/jacamo:1.3 helloworld.jcm
+docker run -ti --rm -v .:/app -w /app -v ./gcache:/root/.gradle jomifred/jacamo:1.3 helloworld.jcm
 ```
 
 Commands for GUI applications (on unix):
