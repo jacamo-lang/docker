@@ -7,28 +7,30 @@
 #    docker push --all-tags jomifred/jacamo
 
 FROM alpine/java:21-jdk
-ENV PATH $PATH:$JAVA_HOME/bin
+ENV PATH=$PATH:$JAVA_HOME/bin
 
 RUN apk add --update --no-cache git bash fontconfig ttf-dejavu \
     libxrender libxtst libxi
 
-RUN git clone https://github.com/jacamo-lang/jacamo-cli.git && \
+RUN git clone --branch v1.3.0 https://github.com/jacamo-lang/jacamo-cli.git && \
     cd jacamo-cli \
-    && ./gradlew uberJar
+    && ./gradlew createBin
 
-RUN cd /jacamo-cli/build/bin \
-    && ../../src/main/resources/scripts/create-bin.sh jacamo-cli-all-1.3.0.jar \
-    && cp /jacamo-cli/build/bin/jacamo /usr/local/bin
+#RUN cd /jacamo-cli/build/bin \
+#    && ../../src/main/resources/scripts/create-bin.sh jacamo-cli-all-1.3.0.jar \
+#    && cp /jacamo-cli/build/bin/jacamo /usr/local/bin
+
+RUN cp /jacamo-cli/build/bin/jacamo /usr/local/bin
 
 #ENV PATH $PATH:/jacamo-cli/build/bin
 
 # create and run an application to download gradle dependencies
-#RUN cd /tmp && \
-#    jacamo app create cacheapp --console && \
-#    cd cacheapp && \
-#    ./gradlew build && \
-#    cd /tmp && \
-#    rm -rf cacheapp
+RUN cd /tmp && \
+    jacamo app create cacheapp --console && \
+    cd cacheapp && \
+    ./gradlew build && \
+    cd /tmp && \
+    rm -rf cacheapp
 
 
 ENTRYPOINT [ "/usr/local/bin/jacamo" ]
